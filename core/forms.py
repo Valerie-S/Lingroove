@@ -14,7 +14,7 @@ class SignUpForm(UserCreationForm):
         model = CustomUser
         fields = ['username', 'email', 'password1', 'password2']
         help_texts = {
-            'username': "150 characters or fewer. Letters, digits and @/./+/-/_ only.",
+            'username': "30 characters or fewer. Letters, digits and @/./+/-/_ only.",
             'email': "",
             'password1': "Your password can’t be too similar to your other personal information. \
                 Your password must contain at least 8 characters. \
