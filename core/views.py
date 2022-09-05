@@ -23,7 +23,7 @@ def signup(request):
             messages.success(request, "Registration successful.")
             # redirect user to front page
             return redirect('index')
-        messages.error(request, "Registration failed. Invalid information.")
+        messages.error(request, "Registration failed. Invalid information. ")
     # If hasn't submitted form yet, create an empty instance of sign up form
     else:
         form = SignUpForm()

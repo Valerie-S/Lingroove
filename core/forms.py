@@ -1,4 +1,4 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
 from django.contrib.auth.models import User  # import the user database model
 
@@ -26,3 +26,8 @@ class SignUpForm(UserCreationForm):
         if commit:
             user.save()
         return user
+
+
+class LoginForm(AuthenticationForm):
+    # accept both username and email for log in
+    username = forms.CharField(label='Email / Username')
