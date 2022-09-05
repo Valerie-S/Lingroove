@@ -1,15 +1,17 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
-from django.contrib.auth.models import User  # import the user database model
+# from django.contrib.auth.models import User  # import the user database model
+from .models import CustomUser
 
 
 # use the Django pre-built register form
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True)
+
     # class meta for options
     class Meta:
         # specify that we are using the user model
-        model = User
+        model = CustomUser
         fields = ['username', 'email', 'password1', 'password2']
         help_texts = {
             'username': "150 characters or fewer. Letters, digits and @/./+/-/_ only.",
