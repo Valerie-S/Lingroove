@@ -1,34 +1,44 @@
 {% extends 'core/index.html' %}
+{% load crispy_forms_filters %}
 
 {% block title %}Sign Up | {% endblock %}
 
 {% block content %}
-<div class="p-10 lg:p-20 text-center">
-    <!-- adjust size based on type of device -->
-    <h1 class="text-3xl lg:text-6xl text-white">Sign up</h1>
-</div>
-    <form method="post" action="." class="lg:w-1/4 px-4 mx-auto">
 
+<div class="p-5 lg:p-10 text-center">
+    <!-- adjust size based on type of device -->
+    <h1 class="text-2xl lg:text-4xl text-white">Sign up</h1>
+</div>
+
+<form method="post" action="." class="lg:w-1/4 px-4 mx-auto">
     <!-- add token here for security -->
     {% csrf_token %}
-
     <div class="mb-5">
         <label class="text-white">Username</label>
-
         <input type="text" name="username" class="w-full mt-2 px-4 py-2 rounded-xl">
+        <div class="help_text"> {{ form.username.help_text }} </div>
+    </div>
+
+    <div class="mb-5">
+        <label class="text-white">Email</label>
+        <input type="text" name="email" class="w-full mt-2 px-4 py-2 rounded-xl">
     </div>
 
     <div class="mb-5">
         <label class="text-white">Password</label>
-
         <input type="password" name="password1" class="w-full mt-2 px-4 py-2 rounded-xl">
+        <div class="help_text"> {{ form.password1.help_text }} </div>
     </div>
 
     <div class="mb-5">
-        <label class="text-white">Repeat password</label>
-
+        <label class="text-white">Password confirmation</label>
         <input type="password" name="password2" class="w-full mt-2 px-4 py-2 rounded-xl">
     </div>
+    <style>
+        .help_text {
+            color: lightyellow;
+        }
+    </style>
 
     <!-- check for errors in the form for each of the fields -->
     {% if form.errors %}
@@ -43,4 +53,8 @@
 
     <button class="px-5 py-3 rounded-xl text-white bg-sky-700 hover:bg-sky-600">Submit</button>
 </form>
+
+<div class="mb-5">
+    <p class="text-center text-white py-2">If you already have an account, <a href="/login" class="hover:bg-teal-500"><u>login</u></a> instead.</p>
+</div>
 {% endblock %}
