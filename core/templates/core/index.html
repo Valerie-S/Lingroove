@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{% block title %}{% endblock %}Lingroove Chat</title>
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <style>
+            .messages {
+                height: 400px;
+                overflow-y: auto;
+            }
+        </style>
+    </head>
+
+    <body class="bg-sky-500">
+        <nav class="flex items-center justify-between px-4 py-6 bg-sky-700">
+            <div>
+                <a href="/" class="text-xl text-white">Lingroove Chat</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <!-- only show content if user is authenticated -->
+                {% if request.user.is_authenticated %}
+                    <a href="/rooms/" class="text-white hover:text-gray-200">Rooms</a>
+
+                    <a href="/logout/" class="px-5 py-3 rounded-xl text-white bg-sky-500 hover:bg-sky-600">Log out</a>
+                    <div class="bg-white p-10 rounded-lg shadow-md">
+                        <h1 class="text-xl font-bold">Host a chat room</h1>
+                        <div class="mt-4 mb-10">
+                          <p class="text-gray-600">Create a public chat to meet new people or create a private chat for friends. </p>
+                          <div class="bg-gray-400 w-64 h-3 rounded-lg mt-2 overflow-hidden">
+                            <div class="bg-pink-400 w-3/4 h-full rounded-lg shadow-md"></div>
+                          </div>
+                        </div>
+
+                        <button class="bg-orange-400 py-3 px-8 mt-4 rounded text-sm font-semibold hover:bg-opacity-75">Start Hosting</button>
+                    </div>
+                {% else %}
+                    <a href="/login/" class="text-white hover:text-gray-200">Log in</a>
+
+                    <a href="/signup/" class="px-5 py-3 rounded-xl text-white bg-sky-500 hover:bg-sky-600">Sign up</a>
+                {% endif %}
+            </div>
+        </nav>
+    {% block content %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+    </body>
+</html>
