@@ -1,0 +1,25 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Chats Rooms | {% endblock %}
+
+{% block content %}
+
+<div class="p-14 lg:p-28 text-center">
+    <!-- adjust size based on type of device -->
+    <h1 class="text-2xl lg:text-4xl text-white">Chats going on</h1>
+</div>
+
+<!-- show a list of all rooms -->
+<div class="w-full flex flex-wrap items-center">
+    {% for room in rooms %}
+        <div class="w-full lg:w-1/4 px-3 py-3">
+            <div class="p-4 bg-white shadow rounded-xl text-center">
+                <h2 class="mb-5 text-2xl font-semibold">{{ room.name }}</h2>
+                <h3 class="mb-5 text-1xl font-light">Users online: {{ room.num_member }}/{{ room.max_member }}</h3>
+                <a href="{% url 'room_detail' room.room_id %}" class="px-5 py-3 block rounded-xl text-white bg-orange-600 hover:bg-orange-700">Join</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

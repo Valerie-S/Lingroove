@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     "channels",
     "core",
+    "chatroom"
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

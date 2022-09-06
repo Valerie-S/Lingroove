@@ -8,31 +8,28 @@
 {% if request.user.is_authenticated %}
 <div class="grid grid-cols-3 p-10 lg:p-10 flex space-x-20 justify-center items-center h-screen">
 
-    <div class="bg-white p-10 rounded-lg shadow-md">
+    <div class="bg-white px-10 py-20 rounded-lg shadow-md">
         <h1 class="text-xl font-bold">Host a chat room</h1>
-        <div class="mt-4 mb-4">
+        <div class="mt-4 mb-4 py-6">
           <p class="text-gray-600">Create a public chat or a private chat. </p>
         </div>
-
-        <button class="bg-orange-400 py-3 px-8 mt-4 rounded text-sm font-semibold hover:bg-opacity-75">Start Hosting</button>
+        <a href="/start_host/" class="px-8 py-3 text-sm font-semibold hover:bg-opacity-75 rounded bg-orange-400 hover:bg-orange-500">Start Hosting</a>
     </div>
 
-    <div class="bg-white p-10 rounded-lg shadow-md">
+    <div class="bg-white px-10 py-20 rounded-lg shadow-md">
         <h1 class="text-xl font-bold">Start Chatting</h1>
-        <div class="mt-4 mb-4">
+        <div class="mt-4 mb-4 py-6">
           <p class="text-gray-600">Join one of the existing chat rooms. </p>
         </div>
-
-        <button class="bg-orange-400 py-3 px-8 mt-4 rounded text-sm font-semibold hover:bg-opacity-75">Browse Chat Rooms</button>
+        <a href="/rooms/" class="px-8 py-3 text-sm font-semibold hover:bg-opacity-75 rounded bg-orange-400 hover:bg-orange-500">Browse Chat Rooms</a>
     </div>
 
-    <div class="bg-white p-10 rounded-lg shadow-md">
+    <div class="bg-white px-10 py-20 rounded-lg shadow-md">
         <h1 class="text-xl font-bold">Get Practice</h1>
-        <div class="mt-4 mb-4">
+        <div class="mt-4 mb-4 py-6">
           <p class="text-gray-600">Practice you speaking and writing skills through games. </p>
         </div>
-
-        <button class="bg-orange-400 py-3 px-8 mt-4 rounded text-sm font-semibold hover:bg-opacity-75">Browse games</button>
+        <a href="/games/" class="px-8 py-3 text-sm font-semibold hover:bg-opacity-75 rounded bg-orange-400 hover:bg-orange-500">Browse Games</a>
     </div>
 </div>
 {% else %}
